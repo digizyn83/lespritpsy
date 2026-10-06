@@ -4,114 +4,102 @@ home: true
 ---
 {%- assign r = site.data.reglages -%}
 {%- if r.lien_rdv and r.lien_rdv != "" -%}{%- assign rdv = r.lien_rdv -%}{%- else -%}{%- assign rdv = "#contact" -%}{%- endif -%}
-<!-- HERO -->
+
+<!-- HERO : vidéo plein écran -->
 <header class="hero">
   <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="{{ site.baseurl }}/assets/video/hero-poster.jpg">
     <source src="{{ site.baseurl }}/assets/video/hero.mp4" type="video/mp4">
   </video>
   <div class="hero-veil"></div>
-  <div class="wrap">
-    <div class="rv">
-      <span class="eyebrow">Psychologue · Psychologie & Islam</span>
-      <h1>Prendre soin de ton cœur, <em class="it">à la lumière</em> de ta foi.</h1>
-      <p class="lead">Je suis Soumia Ikramallah, psychologue. J'accompagne les femmes musulmanes qui veulent avancer sur elles-mêmes et apaiser leurs relations : avec leur mari, leurs enfants, leurs parents.</p>
-      <div class="ctas">
-        <a href="#accompagnements" class="btn btn-dark">Découvrir mes accompagnements</a>
-        <a href="{{ site.baseurl }}/a-propos/" class="btn btn-ghost">Me connaître</a>
-      </div>
-    </div>
-    <div class="hero-visual rv">
-      <div class="arch-outline"></div>
-      <div class="arch ph" data-label="Photo de Soumia"></div>
-      <div class="badge">
-        <div class="dot">✦</div>
-        <div><strong>Séances en ligne</strong>Depuis la France et partout dans le monde</div>
-      </div>
+  <div class="hero-inner">
+    <p class="kicker rise" style="--d:.2s">Psychologue &nbsp;·&nbsp; Psychologie &amp; Islam</p>
+    <h1 class="rise" style="--d:.45s">Prendre soin<br>de ton cœur</h1>
+    <div class="hero-sign rise" style="--d:.75s"><span></span>Soumia Ikramallah<span></span></div>
+    <p class="hero-sub rise" style="--d:.95s">Un accompagnement pensé pour les femmes musulmanes, entre psychologie reconnue et sagesse de notre tradition.</p>
+    <div class="hero-ctas rise" style="--d:1.15s">
+      <a href="{{ rdv }}" class="btn btn-light">Prendre rendez-vous</a>
+      <a href="#bienvenue" class="btn btn-line">Découvrir</a>
     </div>
   </div>
+  <a href="#bienvenue" class="scroll-cue" aria-label="Descendre"><span></span></a>
 </header>
 
-<div class="strip" aria-hidden="true">
-  <div class="track">
-    <span>Confiance en soi</span><span>Vie de couple</span><span>Relation aux enfants</span><span>Lien avec les parents</span><span>Gestion des émotions</span><span>Sérénité intérieure</span>
-    <span>Confiance en soi</span><span>Vie de couple</span><span>Relation aux enfants</span><span>Lien avec les parents</span><span>Gestion des émotions</span><span>Sérénité intérieure</span>
+<!-- VERSET -->
+<section class="verse" id="bienvenue">
+  <div class="wrap rv">
+    {% if r.verset_ar and r.verset_ar != "" %}<p class="verse-ar" lang="ar" dir="rtl">{{ r.verset_ar }}</p>{% endif %}
+    <p class="verse-fr">« {{ r.verset_fr }} »</p>
+    <p class="verse-ref">{{ r.verset_ref }}</p>
   </div>
-</div>
+</section>
 
 <!-- À PROPOS -->
-<section class="about" id="apropos">
-  <div class="wrap">
-    <div class="ph rv" data-label="Photo portrait"></div>
-    <div class="rv">
-      <span class="eyebrow">À propos</span>
-      <h2 style="font-size:clamp(2rem,3.8vw,3rem);margin:1rem 0 1.6rem">Une psychologue qui <em class="it">comprend</em> ce que tu vis.</h2>
-      <p>[Texte de Soumia] Psychologue en libéral depuis plus de 3 ans, je me suis formée à la psychologie islamique pour proposer un accompagnement qui respecte qui tu es.</p>
+<section class="mag" id="apropos">
+  <div class="wrap mag-grid">
+    <div class="mag-img rv"><div class="ph" data-label="Photo de Soumia"></div></div>
+    <div class="mag-txt rv">
+      <span class="index">01 — À propos</span>
+      <h2>Une psychologue qui comprend ce que tu vis.</h2>
+      <p>Psychologue en libéral depuis plus de 3 ans, je me suis formée à la psychologie islamique pour proposer un accompagnement qui respecte qui tu es.</p>
       <p>Ici, tu peux parler librement, sans jugement, avec quelqu'un qui partage tes valeurs et qui s'appuie sur des outils de psychologie reconnus.</p>
-      <blockquote>« Allier la rigueur de la psychologie et la richesse de notre tradition, pour avancer en paix. »</blockquote>
-      <div class="creds">
-        <div><b>3+ ans</b>en cabinet libéral</div>
-        <div><b>Formée</b>en psychologie islamique</div>
-        <div><b>100 %</b>en ligne</div>
+      <div class="facts">
+        <div><b>3+</b><span>années en libéral</span></div>
+        <div><b>100%</b><span>séances en ligne</span></div>
+        <div><b>FR</b><span>&amp; international</span></div>
       </div>
-      <a href="{{ site.baseurl }}/a-propos/" class="btn btn-ghost" style="margin-top:2.4rem">Découvrir mon parcours</a>
+      <a href="{{ site.baseurl }}/a-propos/" class="link-arrow">Découvrir mon parcours</a>
     </div>
   </div>
 </section>
 
 <!-- APPROCHE -->
-<section class="approach" id="approche">
+<section class="approach-mag" id="approche">
   <div class="wrap">
-    <div class="head center rv">
-      <span class="eyebrow">Mon approche</span>
-      <h2>La psychologie et la foi, <em class="it">main dans la main</em></h2>
-      <p>Un accompagnement sérieux, bienveillant et ancré dans tes valeurs.</p>
+    <div class="sec-head rv">
+      <span class="index">02 — Mon approche</span>
+      <h2>La psychologie et la foi,<br>main dans la main.</h2>
     </div>
-    <div class="pillars">
-      <div class="pillar rv"><div class="num">i.</div><h3>Une écoute sans jugement</h3><p>Un espace sûr et confidentiel pour déposer ce qui te pèse, à ton rythme.</p></div>
-      <div class="pillar rv"><div class="num">ii.</div><h3>Des outils qui ont fait leurs preuves</h3><p>Des méthodes de psychologie reconnues, adaptées à ta situation et à tes objectifs.</p></div>
-      <div class="pillar rv"><div class="num">iii.</div><h3>Ancrée dans ta foi</h3><p>Ta spiritualité est une ressource. On s'appuie dessus pour retrouver sens et sérénité.</p></div>
+    <div class="cols3">
+      <div class="col rv"><span class="col-n">I</span><h3>Une écoute sans jugement</h3><p>Un espace sûr et confidentiel pour déposer ce qui te pèse, à ton rythme.</p></div>
+      <div class="col rv"><span class="col-n">II</span><h3>Des outils reconnus</h3><p>Des méthodes de psychologie qui ont fait leurs preuves, adaptées à ta situation.</p></div>
+      <div class="col rv"><span class="col-n">III</span><h3>Ancrée dans ta foi</h3><p>Ta spiritualité est une ressource. On s'appuie dessus pour retrouver sens et sérénité.</p></div>
     </div>
-    <div class="rv" style="text-align:center;margin-top:3rem"><a href="{{ site.baseurl }}/approche/" class="btn btn-ghost">En savoir plus sur mon approche</a></div>
+    <div class="rv center-link"><a href="{{ site.baseurl }}/approche/" class="link-arrow">En savoir plus sur mon approche</a></div>
   </div>
 </section>
 
-<!-- ACCOMPAGNEMENTS -->
-<section id="accompagnements">
+<!-- BANDE PARALLAXE -->
+<section class="parallax" style="background-image:url('{{ site.baseurl }}/assets/video/hero-poster.jpg')">
+  <div class="parallax-veil"></div>
+  <p class="parallax-quote rv">« Et si prendre soin de toi était aussi une manière de te rapprocher d'Allah ? »</p>
+</section>
+
+<!-- ACCOMPAGNEMENTS : liste éditoriale -->
+<section class="offers-mag" id="accompagnements">
   <div class="wrap">
-    <div class="head rv">
-      <span class="eyebrow">Accompagnements</span>
-      <h2>Comment je peux <em class="it">t'aider</em></h2>
+    <div class="sec-head rv">
+      <span class="index">03 — Accompagnements</span>
+      <h2>Cheminer ensemble.</h2>
       <p>En séance individuelle, en groupe lors d'un atelier, ou à ton rythme avec mes ressources.</p>
     </div>
-    <div class="offers">
+    <div class="rows">
       {%- assign offres = site.offres | sort: "order" -%}
       {%- for o in offres %}
-      <div class="offer{% if o.featured %} feat{% endif %} rv">
-        {% if o.tag != "" %}<span class="tag">{{ o.tag }}</span>{% endif %}
-        <h3>{{ o.title }}</h3>
-        <p>{{ o.description }}</p>
-        {% if o.points.size > 0 %}<ul>{% for p in o.points %}<li>{{ p }}</li>{% endfor %}</ul>{% endif %}
-        <div class="price">{{ o.price }}{% if o.price_unit != "" %} <small>{{ o.price_unit }}</small>{% endif %}</div>
-        {%- if o.button_link == "rdv" -%}{%- assign lien = rdv -%}{%- else -%}{%- assign lien = o.button_link | relative_url -%}{%- endif %}
-        <a href="{{ lien }}" class="btn {% if o.featured %}btn-dark{% else %}btn-ghost{% endif %}">{{ o.button_text }}</a>
-      </div>
+      {%- if o.button_link == "rdv" -%}{%- assign lien = rdv -%}{%- else -%}{%- assign lien = o.button_link | relative_url -%}{%- endif %}
+      <a href="{{ lien }}" class="row{% if o.featured %} row-feat{% endif %} rv">
+        <span class="row-n">0{{ forloop.index }}</span>
+        <div class="row-main">
+          {% if o.tag != "" %}<span class="row-tag">{{ o.tag }}</span>{% endif %}
+          <h3>{{ o.title }}</h3>
+          <p>{{ o.description }}</p>
+          {% if o.points.size > 0 %}<ul>{% for p in o.points %}<li>{{ p }}</li>{% endfor %}</ul>{% endif %}
+        </div>
+        <div class="row-side">
+          <span class="row-price">{{ o.price }}{% if o.price_unit != "" %} <small>{{ o.price_unit }}</small>{% endif %}</span>
+          <span class="row-cta">{{ o.button_text }} →</span>
+        </div>
+      </a>
       {%- endfor %}
-    </div>
-  </div>
-</section>
-
-<!-- ÉTAPES -->
-<section class="steps-sec">
-  <div class="wrap">
-    <div class="head rv">
-      <span class="eyebrow" style="color:var(--rose2)">Comment ça se passe</span>
-      <h2>Simple, <em class="it" style="color:var(--rose2)">en quatre étapes</em></h2>
-    </div>
-    <div class="steps">
-      <div class="step rv"><h3>Tu prends rendez-vous</h3><p>Tu choisis ton créneau en ligne, en quelques clics.</p></div>
-      <div class="step rv"><h3>On fait connaissance</h3><p>Une première séance pour comprendre ta situation et tes besoins.</p></div>
-      <div class="step rv"><h3>On avance ensemble</h3><p>Un suivi adapté, avec des outils concrets entre les séances.</p></div>
-      <div class="step rv"><h3>Tu retrouves ta sérénité</h3><p>Plus de confiance, des relations plus apaisées, une foi qui t'élève.</p></div>
     </div>
   </div>
 </section>
@@ -119,15 +107,12 @@ home: true
 <!-- TÉMOIGNAGES -->
 {%- assign temos = site.data.temoignages.liste -%}
 {% if temos.size > 0 %}
-<section id="temoignages">
+<section class="testis-mag" id="temoignages">
   <div class="wrap">
-    <div class="head center rv">
-      <span class="eyebrow">Témoignages</span>
-      <h2>Elles <em class="it">partagent</em> leur expérience</h2>
-    </div>
-    <div class="testis">
+    <div class="sec-head center rv"><span class="index">Témoignages</span><h2>Elles partagent leur expérience.</h2></div>
+    <div class="testi-track">
       {%- for t in temos %}
-      <div class="testi rv"><div class="q">“</div><p>{{ t.texte }}</p><span>— {{ t.prenom }}</span></div>
+      <figure class="testi rv"><blockquote>{{ t.texte }}</blockquote><figcaption>{{ t.prenom }}</figcaption></figure>
       {%- endfor %}
     </div>
     <p class="note">Témoignages publiés anonymement, avec l'accord des personnes concernées.</p>
@@ -135,34 +120,36 @@ home: true
 </section>
 {% endif %}
 
-<!-- RESSOURCES -->
-<section class="res" id="ressources">
+<!-- CONTENUS -->
+<section class="contents" id="ressources">
   <div class="wrap">
-    <div class="head rv">
-      <span class="eyebrow">Ressources</span>
-      <h2>Pour continuer <em class="it">entre nos rencontres</em></h2>
+    <div class="sec-head rv">
+      <span class="index">04 — Contenus</span>
+      <h2>Pour continuer<br>entre nos rencontres.</h2>
     </div>
-    <div class="res-grid">
-      <div class="posts">
+    <div class="contents-grid">
+      <div class="posts-mag">
         {%- for p in site.posts limit:3 %}
-        <a href="{{ p.url | relative_url }}" class="post rv">{% if p.image and p.image != "" %}<img class="ph" src="{{ p.image | relative_url }}" alt="" style="object-fit:cover;width:100%">{% else %}<div class="ph"></div>{% endif %}<div><small>{{ p.category | default: "Blog" }}</small><h3>{{ p.title }}</h3><p>{{ p.excerpt | strip_html | truncate: 110 }}</p></div></a>
+        <a href="{{ p.url | relative_url }}" class="post-mag rv">
+          <span class="post-meta">{{ p.category | default: "Blog" }} · {{ p.date | date: "%d/%m/%Y" }}</span>
+          <h3>{{ p.title }}</h3>
+          <p>{{ p.excerpt | strip_html | truncate: 120 }}</p>
+        </a>
         {%- endfor %}
-        <a href="{{ site.baseurl }}/blog/" class="btn btn-ghost rv" style="justify-self:start">Tous les articles</a>
+        <a href="{{ site.baseurl }}/blog/" class="link-arrow rv">Tous les articles</a>
       </div>
-      <div class="side">
-        <div class="card-c wa rv">
-          <span class="eyebrow">Chaîne WhatsApp</span>
-          <h3>Des rappels doux, chaque semaine</h3>
-          <p>Rejoins ma chaîne pour recevoir conseils, annonces d'ateliers et petits rappels.</p>
-          {% if r.whatsapp != "" %}<a href="{{ r.whatsapp }}" target="_blank" rel="noopener" class="btn btn-dark">Rejoindre la chaîne</a>{% endif %}
+      <div class="side-mag">
+        <div class="tile tile-rose rv">
+          <span class="index">Chaîne WhatsApp</span>
+          <h3>Des rappels doux, chaque semaine.</h3>
+          <p>Conseils, annonces d'ateliers et petits rappels, directement sur ton téléphone.</p>
+          {% if r.whatsapp != "" %}<a href="{{ r.whatsapp }}" target="_blank" rel="noopener" class="link-arrow">Rejoindre la chaîne</a>{% endif %}
         </div>
-        <div class="card-c pod rv">
-          {% if r.spotify != "" %}<span class="eyebrow" style="color:var(--rose)">Podcast</span>
-          <h3>Le podcast L'esprit psy</h3>
+        <div class="tile tile-dark rv">
+          <span class="index">{% if r.spotify != "" %}Podcast{% else %}Bientôt{% endif %}</span>
+          <h3>Le podcast L'esprit psy.</h3>
           <p>Des épisodes pour prendre soin de toi, où que tu sois.</p>
-          <a href="{{ r.spotify }}" target="_blank" rel="noopener" class="btn btn-rose">Écouter sur Spotify</a>{% else %}<span class="eyebrow" style="color:var(--rose)">Bientôt</span>
-          <h3>Le podcast L'esprit psy</h3>
-          <p>Bientôt sur Spotify : des épisodes pour prendre soin de toi, où que tu sois.</p>{% endif %}
+          {% if r.spotify != "" %}<a href="{{ r.spotify }}" target="_blank" rel="noopener" class="link-arrow">Écouter sur Spotify</a>{% endif %}
         </div>
       </div>
     </div>
@@ -170,24 +157,22 @@ home: true
 </section>
 
 <!-- CONTACT -->
-<section class="contact" id="contact">
-  <div class="wrap">
+<section class="contact-mag" id="contact">
+  <div class="wrap contact-grid">
     <div class="rv">
-      <span class="eyebrow">Contact</span>
-      <h2 style="font-size:clamp(2rem,3.8vw,3rem);margin:1rem 0 1.4rem">Faisons le <em class="it">premier pas</em> ensemble.</h2>
+      <span class="index">05 — Contact</span>
+      <h2>Faisons le premier pas ensemble.</h2>
       <p>Une question, une envie de commencer un suivi ? Écris-moi, je te réponds au plus vite, in shaa Allah.</p>
-      <div class="c-info">
-        <div>✉ <a href="mailto:{{ r.email }}">{{ r.email }}</a></div>
-        {% if r.instagram != "" %}<div>◎ <a href="{{ r.instagram }}" target="_blank" rel="noopener">Instagram</a></div>{% endif %}
-      </div>
+      <p class="contact-mail"><a href="mailto:{{ r.email }}">{{ r.email }}</a></p>
+      {% if r.instagram != "" %}<p><a class="link-arrow" href="{{ r.instagram }}" target="_blank" rel="noopener">Instagram</a></p>{% endif %}
     </div>
-    <form class="rv" action="https://formsubmit.co/{{ r.email }}" method="POST">
+    <form class="form-mag rv" action="https://formsubmit.co/{{ r.email }}" method="POST">
       <input type="hidden" name="_subject" value="Nouveau message depuis le site L'esprit psy">
       <input type="hidden" name="_captcha" value="false">
       <input type="text" name="_honey" style="display:none">
       <label>Prénom<input type="text" name="prenom" required></label>
       <label>Email<input type="email" name="email" required></label>
-      <label>Je souhaite…
+      <label>Je souhaite
         <select name="demande"><option>Une thérapie individuelle</option><option>Participer à un atelier</option><option>Une autre question</option></select>
       </label>
       <label>Message<textarea name="message" placeholder="Pas besoin de tout détailler ici, on en parlera en séance."></textarea></label>
@@ -196,4 +181,3 @@ home: true
     </form>
   </div>
 </section>
-

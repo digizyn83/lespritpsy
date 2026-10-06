@@ -153,3 +153,6 @@ collections:
           - { label: "Lien Instagram", name: "instagram", widget: "string", required: false }
           - { label: "Lien Spotify (podcast)", name: "spotify", widget: "string", required: false, hint: "Laisse vide tant que le podcast n'existe pas : le site affichera « Bientôt »" }
           - { label: "Numéro RPPS / ADELI", name: "rpps", widget: "string" }
+          - { label: "Verset en arabe (sous la vidéo)", name: "verset_ar", widget: "string", required: false }
+          - { label: "Verset en français", name: "verset_fr", widget: "text" }
+          - { label: "Référence du verset", name: "verset_ref", widget: "string", hint: "Ex : Sourate Ash-Sharh · Versets 5-6" }
