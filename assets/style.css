@@ -316,3 +316,8 @@ em.it{font-style:italic;color:inherit}
 .tiles2{display:grid;grid-template-columns:1fr 1fr;gap:1.6rem}
 @media (max-width:760px){.tiles2{grid-template-columns:1fr}}
 .row.row-feat p,.row.row-feat li{color:rgba(246,239,231,.85)}
+
+/* Photo À propos : arche (comme la 1re maquette) au lieu du grand carré */
+.about .wrap{align-items:center}
+.about .wrap > .ph,.about .wrap > img{margin-top:0;max-width:430px;justify-self:center;aspect-ratio:3/4;border-radius:220px 220px 0 0;box-shadow:24px 24px 0 -1px var(--cream),24px 24px 0 0 var(--rose2)}
+.about{padding-top:110px}
