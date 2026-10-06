@@ -1,14 +1,19 @@
 ---
 layout: default
 ---
-<header class="page-head">
-  <div class="blob b1"></div><div class="blob b2"></div>
+<section class="approach-v1">
   <div class="wrap">
-    <span class="eyebrow">Mon approche</span>
-    <h1>{{ page.titre }}</h1>
-    <p>{{ page.intro }}</p>
+    <div class="v1-head rv">
+      <span class="v1-eyebrow">Mon approche</span>
+      <h1 class="v1-title">{{ page.titre }}</h1>
+      <p>{{ page.intro }}</p>
+    </div>
+    <div class="v1-cards">
+      {% for a in page.approches %}<div class="v1-card rv"><span class="v1-star">{% include star.svg %}</span><h3>{{ a.titre }}</h3><p>{{ a.texte }}</p></div>{% endfor %}
+    </div>
   </div>
-</header>
+</section>
+
 
 {%- assign r = site.data.reglages -%}
 <!-- VERSET -->
@@ -21,14 +26,7 @@ layout: default
 </section>
 
 
-<section class="approach">
-  <div class="wrap">
-    <div class="head center rv"><span class="eyebrow">Les approches</span><h2>Plusieurs regards, <em class="it">un même soin</em></h2></div>
-    <div class="pillars">
-      {% for a in page.approches %}<div class="pillar rv"><div class="num">{% include star.svg %}</div><h3>{{ a.titre }}</h3><p>{{ a.texte }}</p></div>{% endfor %}
-    </div>
-  </div>
-</section>
+
 
 <section>
   <div class="wrap">

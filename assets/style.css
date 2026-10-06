@@ -357,3 +357,32 @@ em.it{font-style:italic;color:inherit}
 .v1-creds{display:flex;gap:2.5rem;margin-top:2rem;flex-wrap:wrap;font-family:'Mulish',sans-serif;font-size:.8rem;color:var(--mid)}
 .v1-creds b{display:block;font-family:'Marcellus',Georgia,serif;font-weight:400;font-size:1.8rem;color:var(--espresso)}
 @media (max-width:980px){.about-v1 .wrap{grid-template-columns:1fr;gap:3rem}.about-v1-photo{max-width:400px}.about-v1{padding:130px 0 90px}}
+
+/* ═══ MON APPROCHE — style de la 1re maquette ═══ */
+.approach-v1{padding:190px 0 130px;background:var(--cream2)}
+.v1-head{max-width:760px;margin:0 auto 4rem;text-align:center}
+.v1-head p{font-family:'Mulish',sans-serif;font-weight:300;color:var(--mid);margin-top:1.2rem;font-size:1.05rem}
+.v1-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6rem;max-width:1180px;margin:0 auto}
+.v1-card{background:var(--cream);border-radius:28px;padding:2.6rem 2.2rem;transition:transform .4s,box-shadow .4s}
+.v1-card:hover{transform:translateY(-6px);box-shadow:0 24px 50px -28px rgba(78,53,42,.4)}
+.v1-star{color:var(--rose-d);display:inline-flex}
+.v1-star svg{width:30px;height:30px}
+.v1-card h3{font-family:'Marcellus',Georgia,serif;font-size:1.4rem;line-height:1.25;color:var(--espresso);margin:1rem 0 .8rem;letter-spacing:0}
+.v1-card p{font-family:'Mulish',sans-serif;font-weight:300;color:var(--mid);font-size:.95rem;line-height:1.75}
+@media (max-width:980px){.v1-cards{grid-template-columns:1fr}.approach-v1{padding:130px 0 90px}}
+
+/* ═══ CONTACT — style de la 1re maquette ═══ */
+.contact-v1{padding:190px 0 130px;background:var(--cream)}
+.contact-v1 .wrap{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;max-width:1180px}
+.v1-mail{font-family:'Mulish',sans-serif;margin-top:1.6rem;color:var(--brown)}
+.v1-mail a{border-bottom:1px solid var(--rose2)}
+.v1-form{background:var(--cream2);border-radius:28px;padding:2.6rem;display:grid;gap:1.1rem}
+.v1-form label{font-family:'Mulish',sans-serif;font-size:.8rem;letter-spacing:.06em;text-transform:none;color:var(--brown);font-weight:500}
+.v1-form input,.v1-form select,.v1-form textarea{font-family:'Mulish',sans-serif;margin-top:.45rem;padding:.95rem 1.1rem;border:1px solid var(--line);border-radius:14px;background:var(--cream);font-size:.95rem}
+.v1-form input:focus,.v1-form select:focus,.v1-form textarea:focus{border-color:var(--rose-d)}
+.v1-form textarea{min-height:120px}
+.v1-form button{font-family:'Mulish',sans-serif;background:var(--brown);color:var(--cream);border:0;border-radius:100px;padding:1.05rem 1.9rem;font-size:.95rem;font-weight:500;letter-spacing:.04em;cursor:pointer;text-align:left;transition:all .35s}
+.v1-form button:hover{background:var(--espresso);transform:translateY(-2px);box-shadow:0 12px 30px -12px rgba(78,53,42,.5)}
+.v1-note{font-family:'Mulish',sans-serif;font-size:.78rem;color:var(--mid)}
+@media (max-width:980px){.contact-v1 .wrap{grid-template-columns:1fr;gap:3rem}.contact-v1{padding:130px 0 90px}}
+@media (max-width:560px){.v1-form{padding:1.8rem}}

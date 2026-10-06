@@ -99,7 +99,7 @@ collections:
           - { label: "Adresse", name: "permalink", widget: "hidden", default: "/approche/" }
           - { label: "Titre SEO", name: "seo_title", widget: "hidden" }
           - { label: "Description SEO", name: "seo_description", widget: "hidden" }
-          - { label: "Grand titre", name: "titre", widget: "string" }
+          - { label: "Grand titre", name: "titre", widget: "string", hint: "Pour mettre des mots en rose italique : <em>mots</em>" }
           - { label: "Introduction", name: "intro", widget: "text" }
           - label: "Mes approches"
             name: "approches"
