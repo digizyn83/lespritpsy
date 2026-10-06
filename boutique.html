@@ -1,0 +1,51 @@
+---
+permalink: /boutique.html
+layout: default
+seo_title: "Boutique — E-books, vidéos d'ateliers et programmes | L'esprit psy"
+seo_description: "E-books, replays vidéo d'ateliers et programmes de Soumia Ikramallah, psychologue formée en psychologie islamique. Accès immédiat après paiement sécurisé."
+---
+{%- assign produits = site.produits | sort: "order" -%}
+<header class="page-head">
+  <div class="blob b1"></div><div class="blob b2"></div>
+  <div class="wrap">
+    <span class="eyebrow">Boutique</span>
+    <h1>Avancer <em class="it">à ton rythme</em></h1>
+    <p>E-books, vidéos de mes ateliers et programmes : des ressources pour prendre soin de toi, quand tu veux. Accès immédiat après paiement sécurisé.</p>
+  </div>
+</header>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    {% if produits.size > 0 %}
+    <div class="filters rv" style="display:flex;gap:.6rem;flex-wrap:wrap;margin-bottom:2.4rem">
+      <button class="btn btn-dark" data-f="tout">Tout</button>
+      <button class="btn btn-ghost" data-f="E-book">E-books</button>
+      <button class="btn btn-ghost" data-f="Vidéo d'atelier">Vidéos d'ateliers</button>
+      <button class="btn btn-ghost" data-f="Programme">Programmes</button>
+      <button class="btn btn-ghost" data-f="Atelier en direct">Ateliers en direct</button>
+    </div>
+    <div class="grid3" style="padding-bottom:0">
+      {%- for p in produits %}
+      <div class="card rv" data-type="{{ p.type }}">
+        {% if p.cover and p.cover != "" %}<img class="cover" src="{{ p.cover | relative_url }}" alt="{{ p.title }}">{% else %}<div class="ph"></div>{% endif %}
+        <div class="in">
+          <small>{{ p.type }}{% if p.date_atelier %} · {{ p.date_atelier | date: "%d/%m/%Y à %Hh%M" }}{% endif %}{% if p.duree and p.duree != "" %} · {{ p.duree }}{% endif %}</small>
+          <h3>{{ p.title }}</h3>
+          <p>{{ p.description }}</p>
+          <div class="price">{% if p.price == 0 %}Gratuit{% else %}{{ p.price }} €{% endif %}</div>
+          <a href="{{ p.lien_achat }}" target="_blank" rel="noopener" class="btn btn-dark">{% if p.type == "Atelier en direct" %}Je réserve ma place{% elsif p.price == 0 %}J'y accède{% else %}Acheter{% endif %}</a>
+        </div>
+      </div>
+      {%- endfor %}
+    </div>
+    {% else %}
+    <p class="empty">La boutique ouvre très bientôt, in shaa Allah.</p>
+    {% endif %}
+  </div>
+</section>
+<script>
+document.querySelectorAll('.filters button').forEach(b=>b.onclick=()=>{
+  document.querySelectorAll('.filters button').forEach(x=>x.className='btn btn-ghost');b.className='btn btn-dark';
+  document.querySelectorAll('.card[data-type]').forEach(c=>c.style.display=(b.dataset.f==='tout'||c.dataset.type===b.dataset.f)?'':'none');
+});
+</script>

@@ -1,0 +1,60 @@
+{%- assign r = site.data.reglages -%}
+{%- if r.lien_rdv and r.lien_rdv != "" -%}{%- assign rdv = r.lien_rdv -%}{%- else -%}{%- assign rdv = "/#contact" | relative_url -%}{%- endif -%}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{% if page.title and page.layout == "post" %}{{ page.title }} — L'esprit psy{% else %}{{ page.seo_title | default: "L'esprit psy — Soumia Ikramallah, psychologue | Psychologie & Islam" }}{% endif %}</title>
+<meta name="description" content="{{ page.excerpt | default: page.seo_description | default: site.description | strip_html | strip_newlines | truncate: 160 }}">
+{% if site.noindex %}<meta name="robots" content="noindex, nofollow">{% endif %}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Cormorant:ital,wght@1,400;1,500&family=Mulish:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ site.baseurl }}/assets/style.css">
+</head>
+<body>
+
+<nav id="nav"{% unless page.home %} class="scrolled"{% endunless %}>
+  <div class="wrap">
+    <a href="{{ site.baseurl }}/" class="logo">L'esprit <span>psy</span></a>
+    <ul class="nav-links">
+      <li><a href="{{ site.baseurl }}/#apropos">À propos</a></li>
+      <li><a href="{{ site.baseurl }}/#accompagnements">Accompagnements</a></li>
+      <li><a href="{{ site.baseurl }}/boutique.html">Boutique</a></li>
+      <li><a href="{{ site.baseurl }}/blog/">Blog</a></li>
+      <li><a href="{{ rdv }}" class="btn btn-dark">Prendre rendez-vous</a></li>
+    </ul>
+    <button class="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+{{ content }}
+
+<footer>
+  <div class="wrap">
+    <div class="f-grid">
+      <div><a href="{{ site.baseurl }}/" class="logo">L'esprit <span>psy</span></a><p>Soumia Ikramallah, psychologue.<br>N° RPPS / ADELI : {{ r.rpps }}</p></div>
+      <div><h4>Navigation</h4><ul><li><a href="{{ site.baseurl }}/#apropos">À propos</a></li><li><a href="{{ site.baseurl }}/#accompagnements">Accompagnements</a></li><li><a href="{{ site.baseurl }}/boutique.html">Boutique</a></li><li><a href="{{ site.baseurl }}/blog/">Blog</a></li><li><a href="{{ site.baseurl }}/#contact">Contact</a></li></ul></div>
+      <div><h4>Me suivre</h4><ul>
+        {% if r.instagram != "" %}<li><a href="{{ r.instagram }}" target="_blank" rel="noopener">Instagram</a></li>{% endif %}
+        {% if r.whatsapp != "" %}<li><a href="{{ r.whatsapp }}" target="_blank" rel="noopener">Chaîne WhatsApp</a></li>{% endif %}
+        {% if r.spotify != "" %}<li><a href="{{ r.spotify }}" target="_blank" rel="noopener">Podcast Spotify</a></li>{% endif %}
+        <li><a href="mailto:{{ r.email }}">{{ r.email }}</a></li>
+      </ul></div>
+      <div><h4>Infos</h4><ul><li><a href="#">Mentions légales</a></li><li><a href="#">Confidentialité</a></li><li><a href="#">CGV</a></li></ul></div>
+    </div>
+    <div class="f-bottom"><span>© {{ site.time | date: "%Y" }} L'esprit psy</span><span>Site réalisé par <a href="https://digizyn.fr">Digizyn</a></span></div>
+  </div>
+</footer>
+
+<script>
+const nav=document.getElementById('nav');
+{% if page.home %}addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>30));{% endif %}
+document.querySelector('.burger').onclick=()=>nav.classList.toggle('open');
+document.querySelectorAll('.nav-links a').forEach(a=>a.onclick=()=>nav.classList.remove('open'));
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>

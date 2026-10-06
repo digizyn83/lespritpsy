@@ -1,0 +1,27 @@
+---
+layout: default
+seo_title: "Blog — Psychologie & Islam | L'esprit psy"
+seo_description: "Articles de Soumia Ikramallah, psychologue : couple, éducation, émotions, confiance en soi, à la lumière de la psychologie et de l'islam."
+---
+<header class="page-head">
+  <div class="blob b1"></div><div class="blob b2"></div>
+  <div class="wrap">
+    <span class="eyebrow">Blog</span>
+    <h1>Pour continuer <em class="it">entre nos rencontres</em></h1>
+    <p>Des articles pour mieux te comprendre, apaiser tes relations et nourrir ta foi.</p>
+  </div>
+</header>
+<section style="padding-top:0">
+  <div class="wrap">
+    {% if site.posts.size > 0 %}
+    <div class="grid3">
+      {%- for p in site.posts %}
+      <a href="{{ p.url | relative_url }}" class="card rv">
+        {% if p.image and p.image != "" %}<img class="cover" src="{{ p.image | relative_url }}" alt="">{% else %}<div class="ph"></div>{% endif %}
+        <div class="in"><small>{{ p.category | default: "Blog" }} · {{ p.date | date: "%d/%m/%Y" }}</small><h3>{{ p.title }}</h3><p>{{ p.excerpt | strip_html | truncate: 140 }}</p></div>
+      </a>
+      {%- endfor %}
+    </div>
+    {% else %}<p class="empty">Les premiers articles arrivent bientôt.</p>{% endif %}
+  </div>
+</section>

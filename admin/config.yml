@@ -1,0 +1,101 @@
+backend:
+  name: github
+  repo: digizyn83/lespritpsy
+  branch: main
+  base_url: https://samira-cms-auth.super-frost-a263.workers.dev
+
+# Mode local (test sans mise en ligne — actif uniquement sur localhost)
+local_backend: true
+
+locale: fr
+media_folder: "uploads"
+public_folder: "/uploads"
+
+slug:
+  encoding: "unicode"
+  clean_accents: true
+
+collections:
+  # ═══ MES FORMULES (section Accompagnements de l'accueil) ═══
+  - name: "offres"
+    label: "Mes formules"
+    label_singular: "Formule"
+    folder: "_offres"
+    create: true
+    delete: true
+    slug: "{{slug}}"
+    summary: "{{title}} — {{price}}"
+    fields:
+      - { label: "Nom de la formule", name: "title", widget: "string" }
+      - { label: "Petite étiquette", name: "tag", widget: "string", required: false, hint: "Ex : Le plus demandé, En groupe…" }
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Points forts", name: "points", widget: "list", field: { label: "Point", name: "point", widget: "string" }, required: false }
+      - { label: "Prix", name: "price", widget: "string", required: false, hint: "Ex : 60 €  ou  À partir de 25 €" }
+      - { label: "Unité du prix", name: "price_unit", widget: "string", required: false, hint: "Ex : / séance" }
+      - { label: "Texte du bouton", name: "button_text", widget: "string", default: "Réserver une séance" }
+      - { label: "Lien du bouton", name: "button_link", widget: "string", default: "rdv", hint: "Écris « rdv » pour ouvrir ton agenda de réservation, ou /boutique.html pour la boutique" }
+      - { label: "Mettre en avant (carte foncée)", name: "featured", widget: "boolean", default: false }
+      - { label: "Ordre d'affichage", name: "order", widget: "number", value_type: "int", default: 1, hint: "1 = à gauche" }
+
+  # ═══ BOUTIQUE : e-books, vidéos d'ateliers, programmes ═══
+  - name: "produits"
+    label: "Boutique (e-books, vidéos…)"
+    label_singular: "Produit"
+    folder: "_produits"
+    create: true
+    delete: true
+    slug: "{{slug}}"
+    summary: "{{type}} — {{title}} — {{price}}€"
+    fields:
+      - { label: "Type", name: "type", widget: "select", options: ["E-book", "Vidéo d'atelier", "Programme", "Atelier en direct"], default: "E-book" }
+      - { label: "Titre", name: "title", widget: "string" }
+      - { label: "Prix (en €)", name: "price", widget: "number", value_type: "int", min: 0, hint: "Juste le nombre. 0 = gratuit" }
+      - { label: "Description", name: "description", widget: "text", hint: "2 à 4 lignes qui donnent envie" }
+      - { label: "Image / couverture", name: "cover", widget: "image", required: false }
+      - { label: "Durée ou nombre de pages", name: "duree", widget: "string", required: false, hint: "Ex : 1h30 de vidéo  ou  25 pages" }
+      - { label: "Date de l'atelier (seulement pour un atelier en direct)", name: "date_atelier", widget: "datetime", required: false, date_format: "DD/MM/YYYY", time_format: "HH:mm" }
+      - { label: "Lien d'achat (bouton Acheter)", name: "lien_achat", widget: "string", hint: "Le lien de ton produit sur Payhip, ex : https://payhip.com/b/XXXXX" }
+      - { label: "Ordre d'affichage", name: "order", widget: "number", value_type: "int", required: false, default: 1, hint: "1 = affiché en premier" }
+
+  # ═══ BLOG ═══
+  - name: "articles"
+    label: "Articles du blog"
+    label_singular: "Article"
+    folder: "_posts"
+    create: true
+    delete: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Layout", name: "layout", widget: "hidden", default: "post" }
+      - { label: "Titre", name: "title", widget: "string" }
+      - { label: "Date de publication", name: "date", widget: "datetime", format: "YYYY-MM-DD", date_format: "DD/MM/YYYY", time_format: false }
+      - { label: "Catégorie", name: "category", widget: "select", options: ["Couple", "Éducation", "Famille", "Émotions", "Foi & psychologie", "Actualités"], default: "Couple" }
+      - { label: "Image de couverture", name: "image", widget: "image", required: false }
+      - { label: "Résumé", name: "excerpt", widget: "text", required: false, hint: "2-3 lignes affichées sur la page Blog" }
+      - { label: "Contenu", name: "body", widget: "markdown" }
+
+  # ═══ TÉMOIGNAGES + RÉGLAGES ═══
+  - name: "pages"
+    label: "Réglages & témoignages"
+    files:
+      - name: "temoignages"
+        label: "Témoignages"
+        file: "_data/temoignages.yml"
+        fields:
+          - label: "Témoignages"
+            name: "liste"
+            widget: "list"
+            hint: "Uniquement des vrais avis, avec l'accord de la personne. La section se cache s'il n'y en a aucun."
+            fields:
+              - { label: "Témoignage", name: "texte", widget: "text" }
+              - { label: "Prénom (ou initiale)", name: "prenom", widget: "string", hint: "Ex : Amina, ou A." }
+      - name: "reglages"
+        label: "Réglages du site (liens, contact)"
+        file: "_data/reglages.yml"
+        fields:
+          - { label: "Email de contact", name: "email", widget: "string" }
+          - { label: "Lien de prise de rendez-vous (Cal.eu)", name: "lien_rdv", widget: "string", required: false, hint: "Ex : https://cal.eu/lespritpsy" }
+          - { label: "Lien chaîne WhatsApp", name: "whatsapp", widget: "string", required: false }
+          - { label: "Lien Instagram", name: "instagram", widget: "string", required: false }
+          - { label: "Lien Spotify (podcast)", name: "spotify", widget: "string", required: false, hint: "Laisse vide tant que le podcast n'existe pas : le site affichera « Bientôt »" }
+          - { label: "Numéro RPPS / ADELI", name: "rpps", widget: "string" }
