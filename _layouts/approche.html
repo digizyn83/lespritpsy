@@ -1,0 +1,48 @@
+---
+layout: default
+---
+<header class="page-head">
+  <div class="blob b1"></div><div class="blob b2"></div>
+  <div class="wrap">
+    <span class="eyebrow">Mon approche</span>
+    <h1>{{ page.titre }}</h1>
+    <p>{{ page.intro }}</p>
+  </div>
+</header>
+
+<section class="approach">
+  <div class="wrap">
+    <div class="head center rv"><span class="eyebrow">Les approches</span><h2>Plusieurs regards, <em class="it">un même soin</em></h2></div>
+    <div class="pillars">
+      {% for a in page.approches %}<div class="pillar rv"><div class="num">{% cycle 'i.','ii.','iii.','iv.','v.' %}</div><h3>{{ a.titre }}</h3><p>{{ a.texte }}</p></div>{% endfor %}
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="about-split">
+      <div class="rv">
+        <span class="eyebrow">Ce qu'on peut travailler</span>
+        <h2 style="font-size:clamp(2rem,3.8vw,3rem);margin:1rem 0 1.6rem">Les sujets <em class="it">qu'on aborde</em></h2>
+        <p style="color:var(--mid)">{{ page.pour_qui }}</p>
+      </div>
+      <ul class="themes rv">{% for t in page.themes %}<li>{{ t }}</li>{% endfor %}</ul>
+    </div>
+  </div>
+</section>
+
+<section class="steps-sec">
+  <div class="wrap">
+    <div class="head rv"><span class="eyebrow" style="color:var(--rose2)">Comment ça se passe</span><h2>Simple, <em class="it" style="color:var(--rose2)">en quatre étapes</em></h2></div>
+    <div class="steps">
+      <div class="step rv"><h3>Tu prends rendez-vous</h3><p>Tu choisis ton créneau en ligne, en quelques clics.</p></div>
+      <div class="step rv"><h3>On fait connaissance</h3><p>Une première séance pour comprendre ta situation et tes besoins.</p></div>
+      <div class="step rv"><h3>On avance ensemble</h3><p>Un suivi adapté, avec des outils concrets entre les séances.</p></div>
+      <div class="step rv"><h3>Tu retrouves ta sérénité</h3><p>Plus de confiance, des relations plus apaisées, une foi qui t'élève.</p></div>
+    </div>
+    {% if page.limites != "" %}<p class="rv" style="margin-top:3rem;font-size:.8rem;color:rgba(246,239,231,.6);max-width:720px">{{ page.limites }}</p>{% endif %}
+  </div>
+</section>
+
+{% include cta.html %}

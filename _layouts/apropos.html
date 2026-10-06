@@ -1,0 +1,41 @@
+---
+layout: default
+---
+<header class="page-head">
+  <div class="blob b1"></div><div class="blob b2"></div>
+  <div class="wrap">
+    <span class="eyebrow">À propos</span>
+    <h1>{{ page.titre }}</h1>
+  </div>
+</header>
+
+<section class="about" style="padding-top:0">
+  <div class="wrap">
+    {% if page.photo and page.photo != "" %}<img class="rv" src="{{ page.photo | relative_url }}" alt="Soumia Ikramallah" style="aspect-ratio:4/5;object-fit:cover;border-radius:var(--r) var(--r) 200px var(--r)">{% else %}<div class="ph rv" data-label="Photo portrait"></div>{% endif %}
+    <div class="rv">
+      <div class="prose">{{ content }}</div>
+      {% if page.citation != "" %}<blockquote>« {{ page.citation }} »</blockquote>{% endif %}
+      <div class="creds">{% for c in page.chiffres %}<div><b>{{ c.nombre }}</b>{{ c.texte }}</div>{% endfor %}</div>
+    </div>
+  </div>
+</section>
+
+<section class="approach">
+  <div class="wrap">
+    <div class="head center rv"><span class="eyebrow">Mes valeurs</span><h2>Ce qui guide <em class="it">mon accompagnement</em></h2></div>
+    <div class="pillars">
+      {% for v in page.valeurs %}<div class="pillar rv"><div class="num">{% cycle 'i.','ii.','iii.','iv.','v.' %}</div><h3>{{ v.titre }}</h3><p>{{ v.texte }}</p></div>{% endfor %}
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap" style="max-width:900px">
+    <div class="head rv"><span class="eyebrow">Mon parcours</span><h2>Formations <em class="it">& diplômes</em></h2></div>
+    <div class="timeline">
+      {% for f in page.formations %}<div class="tl-item rv"><h3>{{ f.titre }}</h3><p>{{ f.detail }}</p></div>{% endfor %}
+    </div>
+  </div>
+</section>
+
+{% include cta.html %}

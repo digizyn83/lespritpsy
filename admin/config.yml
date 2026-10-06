@@ -57,6 +57,60 @@ collections:
       - { label: "Lien d'achat (bouton Acheter)", name: "lien_achat", widget: "string", hint: "Le lien de ton produit sur Payhip, ex : https://payhip.com/b/XXXXX" }
       - { label: "Ordre d'affichage", name: "order", widget: "number", value_type: "int", required: false, default: 1, hint: "1 = affiché en premier" }
 
+  # ═══ PAGES À PROPOS / APPROCHE ═══
+  - name: "pages_site"
+    label: "Pages du site"
+    files:
+      - name: "apropos"
+        label: "Page À propos"
+        file: "a-propos.md"
+        fields:
+          - { label: "Layout", name: "layout", widget: "hidden", default: "apropos" }
+          - { label: "Adresse", name: "permalink", widget: "hidden", default: "/a-propos/" }
+          - { label: "Titre SEO", name: "seo_title", widget: "hidden" }
+          - { label: "Description SEO", name: "seo_description", widget: "hidden" }
+          - { label: "Grand titre", name: "titre", widget: "string" }
+          - { label: "Photo", name: "photo", widget: "image", required: false, hint: "Photo verticale de toi" }
+          - { label: "Ton histoire", name: "body", widget: "markdown" }
+          - { label: "Citation", name: "citation", widget: "string", required: false }
+          - label: "Chiffres clés"
+            name: "chiffres"
+            widget: "list"
+            fields:
+              - { label: "Chiffre", name: "nombre", widget: "string", hint: "Ex : 3+ ans" }
+              - { label: "Texte", name: "texte", widget: "string", hint: "Ex : en cabinet libéral" }
+          - label: "Mes valeurs"
+            name: "valeurs"
+            widget: "list"
+            fields:
+              - { label: "Valeur", name: "titre", widget: "string" }
+              - { label: "Explication", name: "texte", widget: "text" }
+          - label: "Formations & diplômes"
+            name: "formations"
+            widget: "list"
+            fields:
+              - { label: "Formation", name: "titre", widget: "string" }
+              - { label: "Détail (école, année…)", name: "detail", widget: "string", required: false }
+      - name: "approche"
+        label: "Page Mon approche"
+        file: "approche.md"
+        fields:
+          - { label: "Layout", name: "layout", widget: "hidden", default: "approche" }
+          - { label: "Adresse", name: "permalink", widget: "hidden", default: "/approche/" }
+          - { label: "Titre SEO", name: "seo_title", widget: "hidden" }
+          - { label: "Description SEO", name: "seo_description", widget: "hidden" }
+          - { label: "Grand titre", name: "titre", widget: "string" }
+          - { label: "Introduction", name: "intro", widget: "text" }
+          - label: "Mes approches"
+            name: "approches"
+            widget: "list"
+            fields:
+              - { label: "Nom de l'approche", name: "titre", widget: "string" }
+              - { label: "Explication", name: "texte", widget: "text" }
+          - { label: "Sujets qu'on peut travailler", name: "themes", widget: "list" }
+          - { label: "Pour qui ?", name: "pour_qui", widget: "text" }
+          - { label: "Mention urgence", name: "limites", widget: "text", required: false }
+
   # ═══ BLOG ═══
   - name: "articles"
     label: "Articles du blog"
