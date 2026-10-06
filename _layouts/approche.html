@@ -10,6 +10,17 @@ layout: default
   </div>
 </header>
 
+{%- assign r = site.data.reglages -%}
+<!-- VERSET -->
+<section class="verse" >
+  <div class="wrap rv">
+    {% if r.verset_ar and r.verset_ar != "" %}<p class="verse-ar" lang="ar" dir="rtl">{{ r.verset_ar }}</p>{% endif %}
+    <p class="verse-fr">« {{ r.verset_fr }} »</p>
+    <p class="verse-ref">{{ r.verset_ref }}</p>
+  </div>
+</section>
+
+
 <section class="approach">
   <div class="wrap">
     <div class="head center rv"><span class="eyebrow">Les approches</span><h2>Plusieurs regards, <em class="it">un même soin</em></h2></div>

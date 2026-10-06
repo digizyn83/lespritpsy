@@ -1,9 +1,10 @@
 ---
 layout: default
 home: true
+no_footer: true
 ---
 {%- assign r = site.data.reglages -%}
-{%- if r.lien_rdv and r.lien_rdv != "" -%}{%- assign rdv = r.lien_rdv -%}{%- else -%}{%- assign rdv = "#contact" -%}{%- endif -%}
+{%- if r.lien_rdv and r.lien_rdv != "" -%}{%- assign rdv = r.lien_rdv -%}{%- else -%}{%- assign rdv = "/contact/" | relative_url -%}{%- endif -%}
 
 <!-- HERO : vidéo plein écran -->
 <header class="hero">
@@ -18,166 +19,9 @@ home: true
     <p class="hero-sub rise" style="--d:.95s">Un accompagnement pensé pour les femmes musulmanes, entre psychologie reconnue et sagesse de notre tradition.</p>
     <div class="hero-ctas rise" style="--d:1.15s">
       <a href="{{ rdv }}" class="btn btn-light">Prendre rendez-vous</a>
-      <a href="#bienvenue" class="btn btn-line">Découvrir</a>
+      <a href="{{ site.baseurl }}/a-propos/" class="btn btn-line">Découvrir</a>
     </div>
   </div>
-  <a href="#bienvenue" class="scroll-cue" aria-label="Descendre"><span></span></a>
+  <div class="hero-legal"><a href="{{ site.baseurl }}/mentions-legales/">Mentions légales</a> · <a href="{{ site.baseurl }}/confidentialite/">Confidentialité</a> · <a href="{{ site.baseurl }}/cgv/">CGV</a></div>
 </header>
 
-<!-- VERSET -->
-<section class="verse" id="bienvenue">
-  <div class="wrap rv">
-    {% if r.verset_ar and r.verset_ar != "" %}<p class="verse-ar" lang="ar" dir="rtl">{{ r.verset_ar }}</p>{% endif %}
-    <p class="verse-fr">« {{ r.verset_fr }} »</p>
-    <p class="verse-ref">{{ r.verset_ref }}</p>
-  </div>
-</section>
-
-<!-- À PROPOS -->
-<section class="mag" id="apropos">
-  <div class="wrap mag-grid">
-    <div class="mag-img rv"><div class="ph" data-label="Photo de Soumia"></div></div>
-    <div class="mag-txt rv">
-      <span class="index">01 — À propos</span>
-      <h2>Une psychologue qui comprend ce que tu vis.</h2>
-      <p>Psychologue en libéral depuis plus de 3 ans, je me suis formée à la psychologie islamique pour proposer un accompagnement qui respecte qui tu es.</p>
-      <p>Ici, tu peux parler librement, sans jugement, avec quelqu'un qui partage tes valeurs et qui s'appuie sur des outils de psychologie reconnus.</p>
-      <div class="facts">
-        <div><b>3+</b><span>années en libéral</span></div>
-        <div><b>100%</b><span>séances en ligne</span></div>
-        <div><b>FR</b><span>&amp; international</span></div>
-      </div>
-      <a href="{{ site.baseurl }}/a-propos/" class="link-arrow">Découvrir mon parcours</a>
-    </div>
-  </div>
-</section>
-
-<!-- APPROCHE -->
-<section class="approach-mag" id="approche">
-  <div class="wrap">
-    <div class="sec-head rv">
-      <span class="index">02 — Mon approche</span>
-      <h2>La psychologie et la foi,<br>main dans la main.</h2>
-    </div>
-    <div class="cols3">
-      <div class="col rv"><span class="col-n">I</span><h3>Une écoute sans jugement</h3><p>Un espace sûr et confidentiel pour déposer ce qui te pèse, à ton rythme.</p></div>
-      <div class="col rv"><span class="col-n">II</span><h3>Des outils reconnus</h3><p>Des méthodes de psychologie qui ont fait leurs preuves, adaptées à ta situation.</p></div>
-      <div class="col rv"><span class="col-n">III</span><h3>Ancrée dans ta foi</h3><p>Ta spiritualité est une ressource. On s'appuie dessus pour retrouver sens et sérénité.</p></div>
-    </div>
-    <div class="rv center-link"><a href="{{ site.baseurl }}/approche/" class="link-arrow">En savoir plus sur mon approche</a></div>
-  </div>
-</section>
-
-<!-- BANDE PARALLAXE -->
-<section class="parallax" style="background-image:url('{{ site.baseurl }}/assets/video/hero-poster.jpg')">
-  <div class="parallax-veil"></div>
-  <p class="parallax-quote rv">« Et si prendre soin de toi était aussi une manière de te rapprocher d'Allah ? »</p>
-</section>
-
-<!-- ACCOMPAGNEMENTS : liste éditoriale -->
-<section class="offers-mag" id="accompagnements">
-  <div class="wrap">
-    <div class="sec-head rv">
-      <span class="index">03 — Accompagnements</span>
-      <h2>Cheminer ensemble.</h2>
-      <p>En séance individuelle, en groupe lors d'un atelier, ou à ton rythme avec mes ressources.</p>
-    </div>
-    <div class="rows">
-      {%- assign offres = site.offres | sort: "order" -%}
-      {%- for o in offres %}
-      {%- if o.button_link == "rdv" -%}{%- assign lien = rdv -%}{%- else -%}{%- assign lien = o.button_link | relative_url -%}{%- endif %}
-      <a href="{{ lien }}" class="row{% if o.featured %} row-feat{% endif %} rv">
-        <span class="row-n">0{{ forloop.index }}</span>
-        <div class="row-main">
-          {% if o.tag != "" %}<span class="row-tag">{{ o.tag }}</span>{% endif %}
-          <h3>{{ o.title }}</h3>
-          <p>{{ o.description }}</p>
-          {% if o.points.size > 0 %}<ul>{% for p in o.points %}<li>{{ p }}</li>{% endfor %}</ul>{% endif %}
-        </div>
-        <div class="row-side">
-          <span class="row-price">{{ o.price }}{% if o.price_unit != "" %} <small>{{ o.price_unit }}</small>{% endif %}</span>
-          <span class="row-cta">{{ o.button_text }} →</span>
-        </div>
-      </a>
-      {%- endfor %}
-    </div>
-  </div>
-</section>
-
-<!-- TÉMOIGNAGES -->
-{%- assign temos = site.data.temoignages.liste -%}
-{% if temos.size > 0 %}
-<section class="testis-mag" id="temoignages">
-  <div class="wrap">
-    <div class="sec-head center rv"><span class="index">Témoignages</span><h2>Elles partagent leur expérience.</h2></div>
-    <div class="testi-track">
-      {%- for t in temos %}
-      <figure class="testi rv"><blockquote>{{ t.texte }}</blockquote><figcaption>{{ t.prenom }}</figcaption></figure>
-      {%- endfor %}
-    </div>
-    <p class="note">Témoignages publiés anonymement, avec l'accord des personnes concernées.</p>
-  </div>
-</section>
-{% endif %}
-
-<!-- CONTENUS -->
-<section class="contents" id="ressources">
-  <div class="wrap">
-    <div class="sec-head rv">
-      <span class="index">04 — Contenus</span>
-      <h2>Pour continuer<br>entre nos rencontres.</h2>
-    </div>
-    <div class="contents-grid">
-      <div class="posts-mag">
-        {%- for p in site.posts limit:3 %}
-        <a href="{{ p.url | relative_url }}" class="post-mag rv">
-          <span class="post-meta">{{ p.category | default: "Blog" }} · {{ p.date | date: "%d/%m/%Y" }}</span>
-          <h3>{{ p.title }}</h3>
-          <p>{{ p.excerpt | strip_html | truncate: 120 }}</p>
-        </a>
-        {%- endfor %}
-        <a href="{{ site.baseurl }}/blog/" class="link-arrow rv">Tous les articles</a>
-      </div>
-      <div class="side-mag">
-        <div class="tile tile-rose rv">
-          <span class="index">Chaîne WhatsApp</span>
-          <h3>Des rappels doux, chaque semaine.</h3>
-          <p>Conseils, annonces d'ateliers et petits rappels, directement sur ton téléphone.</p>
-          {% if r.whatsapp != "" %}<a href="{{ r.whatsapp }}" target="_blank" rel="noopener" class="link-arrow">Rejoindre la chaîne</a>{% endif %}
-        </div>
-        <div class="tile tile-dark rv">
-          <span class="index">{% if r.spotify != "" %}Podcast{% else %}Bientôt{% endif %}</span>
-          <h3>Le podcast L'esprit psy.</h3>
-          <p>Des épisodes pour prendre soin de toi, où que tu sois.</p>
-          {% if r.spotify != "" %}<a href="{{ r.spotify }}" target="_blank" rel="noopener" class="link-arrow">Écouter sur Spotify</a>{% endif %}
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section class="contact-mag" id="contact">
-  <div class="wrap contact-grid">
-    <div class="rv">
-      <span class="index">05 — Contact</span>
-      <h2>Faisons le premier pas ensemble.</h2>
-      <p>Une question, une envie de commencer un suivi ? Écris-moi, je te réponds au plus vite, in shaa Allah.</p>
-      <p class="contact-mail"><a href="mailto:{{ r.email }}">{{ r.email }}</a></p>
-      {% if r.instagram != "" %}<p><a class="link-arrow" href="{{ r.instagram }}" target="_blank" rel="noopener">Instagram</a></p>{% endif %}
-    </div>
-    <form class="form-mag rv" action="https://formsubmit.co/{{ r.email }}" method="POST">
-      <input type="hidden" name="_subject" value="Nouveau message depuis le site L'esprit psy">
-      <input type="hidden" name="_captcha" value="false">
-      <input type="text" name="_honey" style="display:none">
-      <label>Prénom<input type="text" name="prenom" required></label>
-      <label>Email<input type="email" name="email" required></label>
-      <label>Je souhaite
-        <select name="demande"><option>Une thérapie individuelle</option><option>Participer à un atelier</option><option>Une autre question</option></select>
-      </label>
-      <label>Message<textarea name="message" placeholder="Pas besoin de tout détailler ici, on en parlera en séance."></textarea></label>
-      <button class="btn btn-dark" type="submit">Envoyer mon message</button>
-      <p class="form-note">Tes informations restent confidentielles. En cas d'urgence, appelle le 15 ou le 3114.</p>
-    </form>
-  </div>
-</section>

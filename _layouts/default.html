@@ -1,5 +1,5 @@
 {%- assign r = site.data.reglages -%}
-{%- if r.lien_rdv and r.lien_rdv != "" -%}{%- assign rdv = r.lien_rdv -%}{%- else -%}{%- assign rdv = "/#contact" | relative_url -%}{%- endif -%}
+{%- if r.lien_rdv and r.lien_rdv != "" -%}{%- assign rdv = r.lien_rdv -%}{%- else -%}{%- assign rdv = "/contact/" | relative_url -%}{%- endif -%}
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -11,7 +11,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@300;400;500;600&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="{{ site.baseurl }}/assets/style.css">
+<link rel="stylesheet" href="{{ site.baseurl }}/assets/style.css?v={{ site.time | date: '%s' }}">
 </head>
 <body>
 
@@ -21,9 +21,10 @@
     <ul class="nav-links">
       <li><a href="{{ site.baseurl }}/a-propos/">À propos</a></li>
       <li><a href="{{ site.baseurl }}/approche/">Mon approche</a></li>
-      <li><a href="{{ site.baseurl }}/#accompagnements">Accompagnements</a></li>
+      <li><a href="{{ site.baseurl }}/accompagnements/">Accompagnements</a></li>
       <li><a href="{{ site.baseurl }}/boutique.html">Boutique</a></li>
       <li><a href="{{ site.baseurl }}/blog/">Blog</a></li>
+      <li><a href="{{ site.baseurl }}/contact/">Contact</a></li>
       <li><a href="{{ rdv }}" class="btn btn-dark">Prendre rendez-vous</a></li>
     </ul>
     <button class="burger" aria-label="Menu"><span></span><span></span><span></span></button>
@@ -32,11 +33,12 @@
 
 {{ content }}
 
+{% unless page.no_footer %}
 <footer>
   <div class="wrap">
     <div class="f-grid">
       <div><a href="{{ site.baseurl }}/" class="logo">L'esprit <span>psy</span></a><p>Soumia Ikramallah, psychologue.<br>N° RPPS / ADELI : {{ r.rpps }}</p></div>
-      <div><h4>Navigation</h4><ul><li><a href="{{ site.baseurl }}/a-propos/">À propos</a></li><li><a href="{{ site.baseurl }}/approche/">Mon approche</a></li><li><a href="{{ site.baseurl }}/#accompagnements">Accompagnements</a></li><li><a href="{{ site.baseurl }}/boutique.html">Boutique</a></li><li><a href="{{ site.baseurl }}/blog/">Blog</a></li><li><a href="{{ site.baseurl }}/#contact">Contact</a></li></ul></div>
+      <div><h4>Navigation</h4><ul><li><a href="{{ site.baseurl }}/a-propos/">À propos</a></li><li><a href="{{ site.baseurl }}/approche/">Mon approche</a></li><li><a href="{{ site.baseurl }}/accompagnements/">Accompagnements</a></li><li><a href="{{ site.baseurl }}/boutique.html">Boutique</a></li><li><a href="{{ site.baseurl }}/blog/">Blog</a></li><li><a href="{{ site.baseurl }}/contact/">Contact</a></li></ul></div>
       <div><h4>Me suivre</h4><ul>
         {% if r.instagram != "" %}<li><a href="{{ r.instagram }}" target="_blank" rel="noopener">Instagram</a></li>{% endif %}
         {% if r.whatsapp != "" %}<li><a href="{{ r.whatsapp }}" target="_blank" rel="noopener">Chaîne WhatsApp</a></li>{% endif %}
@@ -48,6 +50,7 @@
     <div class="f-bottom"><span>© {{ site.time | date: "%Y" }} L'esprit psy</span><span>Site réalisé par <a href="https://digizyn.fr">Digizyn</a></span></div>
   </div>
 </footer>
+{% endunless %}
 
 <script>
 const nav=document.getElementById('nav');

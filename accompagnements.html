@@ -1,0 +1,71 @@
+---
+layout: default
+permalink: /accompagnements/
+seo_title: "Accompagnements — Thérapie, ateliers, boutique | L'esprit psy"
+seo_description: "Thérapie individuelle en ligne, ateliers et conférences, e-books et vidéos : les accompagnements de Soumia Ikramallah, psychologue."
+---
+{%- assign r = site.data.reglages -%}
+{%- if r.lien_rdv and r.lien_rdv != "" -%}{%- assign rdv = r.lien_rdv -%}{%- else -%}{%- assign rdv = "/contact/" | relative_url -%}{%- endif -%}
+
+<header class="page-head">
+  <div class="wrap">
+    <span class="eyebrow">Accompagnements</span>
+    <h1>Cheminer ensemble.</h1>
+    <p>En séance individuelle, en groupe lors d'un atelier, ou à ton rythme avec mes ressources.</p>
+  </div>
+</header>
+
+<!-- ACCOMPAGNEMENTS : liste éditoriale -->
+<section class="offers-mag" style="padding-top:100px">
+  <div class="wrap">
+    <div class="rows">
+      {%- assign offres = site.offres | sort: "order" -%}
+      {%- for o in offres %}
+      {%- if o.button_link == "rdv" -%}{%- assign lien = rdv -%}{%- else -%}{%- assign lien = o.button_link | relative_url -%}{%- endif %}
+      <a href="{{ lien }}" class="row{% if o.featured %} row-feat{% endif %} rv">
+        <span class="row-n">0{{ forloop.index }}</span>
+        <div class="row-main">
+          {% if o.tag != "" %}<span class="row-tag">{{ o.tag }}</span>{% endif %}
+          <h3>{{ o.title }}</h3>
+          <p>{{ o.description }}</p>
+          {% if o.points.size > 0 %}<ul>{% for p in o.points %}<li>{{ p }}</li>{% endfor %}</ul>{% endif %}
+        </div>
+        <div class="row-side">
+          <span class="row-price">{{ o.price }}{% if o.price_unit != "" %} <small>{{ o.price_unit }}</small>{% endif %}</span>
+          <span class="row-cta">{{ o.button_text }} →</span>
+        </div>
+      </a>
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="steps-sec">
+  <div class="wrap">
+    <div class="head rv"><span class="eyebrow">Comment ça se passe</span><h2>Simple, en quatre étapes.</h2></div>
+    <div class="steps">
+      <div class="step rv"><h3>Tu prends rendez-vous</h3><p>Tu choisis ton créneau en ligne, en quelques clics.</p></div>
+      <div class="step rv"><h3>On fait connaissance</h3><p>Une première séance pour comprendre ta situation et tes besoins.</p></div>
+      <div class="step rv"><h3>On avance ensemble</h3><p>Un suivi adapté, avec des outils concrets entre les séances.</p></div>
+      <div class="step rv"><h3>Tu retrouves ta sérénité</h3><p>Plus de confiance, des relations plus apaisées, une foi qui t'élève.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- TÉMOIGNAGES -->
+{%- assign temos = site.data.temoignages.liste -%}
+{% if temos.size > 0 %}
+<section class="testis-mag" id="temoignages">
+  <div class="wrap">
+    <div class="sec-head center rv"><span class="index">Témoignages</span><h2>Elles partagent leur expérience.</h2></div>
+    <div class="testi-track">
+      {%- for t in temos %}
+      <figure class="testi rv"><blockquote>{{ t.texte }}</blockquote><figcaption>{{ t.prenom }}</figcaption></figure>
+      {%- endfor %}
+    </div>
+    <p class="note">Témoignages publiés anonymement, avec l'accord des personnes concernées.</p>
+  </div>
+</section>
+{% endif %}
+
+{% include cta.html %}

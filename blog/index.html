@@ -3,6 +3,7 @@ layout: default
 seo_title: "Blog — Psychologie & Islam | L'esprit psy"
 seo_description: "Articles de Soumia Ikramallah, psychologue : couple, éducation, émotions, confiance en soi, à la lumière de la psychologie et de l'islam."
 ---
+{%- assign r = site.data.reglages -%}
 <header class="page-head">
   <div class="blob b1"></div><div class="blob b2"></div>
   <div class="wrap">
@@ -23,5 +24,24 @@ seo_description: "Articles de Soumia Ikramallah, psychologue : couple, éducatio
       {%- endfor %}
     </div>
     {% else %}<p class="empty">Les premiers articles arrivent bientôt.</p>{% endif %}
+  </div>
+</section>
+
+<section class="approach-mag" style="padding:100px 0">
+  <div class="wrap">
+    <div class="tiles2">
+      <div class="tile tile-rose rv">
+          <span class="index">Chaîne WhatsApp</span>
+          <h3>Des rappels doux, chaque semaine.</h3>
+          <p>Conseils, annonces d'ateliers et petits rappels, directement sur ton téléphone.</p>
+          {% if r.whatsapp != "" %}<a href="{{ r.whatsapp }}" target="_blank" rel="noopener" class="link-arrow">Rejoindre la chaîne</a>{% endif %}
+        </div>
+        <div class="tile tile-dark rv">
+          <span class="index">{% if r.spotify != "" %}Podcast{% else %}Bientôt{% endif %}</span>
+          <h3>Le podcast L'esprit psy.</h3>
+          <p>Des épisodes pour prendre soin de toi, où que tu sois.</p>
+          {% if r.spotify != "" %}<a href="{{ r.spotify }}" target="_blank" rel="noopener" class="link-arrow">Écouter sur Spotify</a>{% endif %}
+        </div>
+    </div>
   </div>
 </section>

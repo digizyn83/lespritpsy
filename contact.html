@@ -1,0 +1,37 @@
+---
+layout: default
+permalink: /contact/
+seo_title: "Contact — L'esprit psy"
+seo_description: "Contacte Soumia Ikramallah, psychologue, pour une question ou pour commencer un suivi."
+---
+{%- assign r = site.data.reglages -%}
+<header class="page-head">
+  <div class="wrap">
+    <span class="eyebrow">Contact</span>
+    <h1>Faisons le premier pas ensemble.</h1>
+  </div>
+</header>
+
+<!-- CONTACT -->
+<section class="contact-mag">
+  <div class="wrap contact-grid">
+    <div class="rv">
+            <p>Une question, une envie de commencer un suivi ? Écris-moi, je te réponds au plus vite, in shaa Allah.</p>
+      <p class="contact-mail"><a href="mailto:{{ r.email }}">{{ r.email }}</a></p>
+      {% if r.instagram != "" %}<p><a class="link-arrow" href="{{ r.instagram }}" target="_blank" rel="noopener">Instagram</a></p>{% endif %}
+    </div>
+    <form class="form-mag rv" action="https://formsubmit.co/{{ r.email }}" method="POST">
+      <input type="hidden" name="_subject" value="Nouveau message depuis le site L'esprit psy">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="text" name="_honey" style="display:none">
+      <label>Prénom<input type="text" name="prenom" required></label>
+      <label>Email<input type="email" name="email" required></label>
+      <label>Je souhaite
+        <select name="demande"><option>Une thérapie individuelle</option><option>Participer à un atelier</option><option>Une autre question</option></select>
+      </label>
+      <label>Message<textarea name="message" placeholder="Pas besoin de tout détailler ici, on en parlera en séance."></textarea></label>
+      <button class="btn btn-dark" type="submit">Envoyer mon message</button>
+      <p class="form-note">Tes informations restent confidentielles. En cas d'urgence, appelle le 15 ou le 3114.</p>
+    </form>
+  </div>
+</section>

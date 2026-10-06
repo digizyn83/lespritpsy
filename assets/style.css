@@ -308,3 +308,9 @@ em.it{font-style:italic;color:inherit}
   .tile{padding:2.4rem 1.6rem}
 }
 @media (prefers-reduced-motion:reduce){.hero-video{display:none}.rise,.rv{opacity:1;transform:none;animation:none}.scroll-cue span{animation:none}}
+
+/* Accueil seul (vidéo) */
+.hero-legal{position:absolute;bottom:22px;left:0;right:0;text-align:center;z-index:1;font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(244,236,227,.55)}
+.hero-legal a:hover{color:var(--cream)}
+.tiles2{display:grid;grid-template-columns:1fr 1fr;gap:1.6rem}
+@media (max-width:760px){.tiles2{grid-template-columns:1fr}}
