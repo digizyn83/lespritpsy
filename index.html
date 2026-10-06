@@ -6,7 +6,10 @@ home: true
 {%- if r.lien_rdv and r.lien_rdv != "" -%}{%- assign rdv = r.lien_rdv -%}{%- else -%}{%- assign rdv = "#contact" -%}{%- endif -%}
 <!-- HERO -->
 <header class="hero">
-  <div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div>
+  <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="{{ site.baseurl }}/assets/video/hero-poster.jpg">
+    <source src="{{ site.baseurl }}/assets/video/hero.mp4" type="video/mp4">
+  </video>
+  <div class="hero-veil"></div>
   <div class="wrap">
     <div class="rv">
       <span class="eyebrow">Psychologue · Psychologie & Islam</span>

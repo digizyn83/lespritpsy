@@ -238,3 +238,10 @@ footer a:hover{color:var(--rose)}
 .article .body img{border-radius:18px;margin:2rem 0}
 .back{display:inline-block;margin-bottom:2rem;font-size:.85rem;color:var(--brown)}
 .offer .price:empty,.card .price:empty{display:none}
+
+/* ═══ VIDÉO DE FOND (haut de page) ═══ */
+.hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+.hero-veil{position:absolute;inset:0;z-index:0;background:linear-gradient(100deg,rgba(246,239,231,.93) 0%,rgba(246,239,231,.82) 42%,rgba(233,207,200,.45) 75%,rgba(110,78,63,.25) 100%)}
+.hero .wrap{z-index:1}
+@media (max-width:980px){.hero-veil{background:rgba(246,239,231,.84)}}
+@media (prefers-reduced-motion:reduce){.hero-video{display:none}}
