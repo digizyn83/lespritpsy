@@ -315,3 +315,4 @@ em.it{font-style:italic;color:inherit}
 .hero-legal a:hover{color:var(--cream)}
 .tiles2{display:grid;grid-template-columns:1fr 1fr;gap:1.6rem}
 @media (max-width:760px){.tiles2{grid-template-columns:1fr}}
+.row.row-feat p,.row.row-feat li{color:rgba(246,239,231,.85)}
