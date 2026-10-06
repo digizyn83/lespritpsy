@@ -69,7 +69,7 @@ collections:
           - { label: "Adresse", name: "permalink", widget: "hidden", default: "/a-propos/" }
           - { label: "Titre SEO", name: "seo_title", widget: "hidden" }
           - { label: "Description SEO", name: "seo_description", widget: "hidden" }
-          - { label: "Grand titre", name: "titre", widget: "string" }
+          - { label: "Grand titre", name: "titre", widget: "string", hint: "Pour mettre un mot en rose italique : <em>mot</em>" }
           - { label: "Photo", name: "photo", widget: "image", required: false, hint: "Photo verticale de toi" }
           - { label: "Ton histoire", name: "body", widget: "markdown" }
           - { label: "Citation", name: "citation", widget: "string", required: false }

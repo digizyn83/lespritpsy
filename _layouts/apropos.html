@@ -1,21 +1,15 @@
 ---
 layout: default
 ---
-<header class="page-head">
-  <div class="blob b1"></div><div class="blob b2"></div>
+<section class="about-v1">
   <div class="wrap">
-    <span class="eyebrow">À propos</span>
-    <h1>{{ page.titre }}</h1>
-  </div>
-</header>
-
-<section class="about" style="padding-top:0">
-  <div class="wrap">
-    {% if page.photo and page.photo != "" %}<img class="rv" src="{{ page.photo | relative_url }}" alt="Soumia Ikramallah" style="aspect-ratio:4/5;object-fit:cover;border-radius:var(--r) var(--r) 200px var(--r)">{% else %}<div class="ph rv" data-label="Photo portrait"></div>{% endif %}
+    {% if page.photo and page.photo != "" %}<img class="about-v1-photo rv" src="{{ page.photo | relative_url }}" alt="Soumia Ikramallah">{% else %}<div class="about-v1-photo ph rv" data-label="Photo portrait"></div>{% endif %}
     <div class="rv">
-      <div class="prose">{{ content }}</div>
-      {% if page.citation != "" %}<blockquote>« {{ page.citation }} »</blockquote>{% endif %}
-      <div class="creds">{% for c in page.chiffres %}<div><b>{{ c.nombre }}</b>{{ c.texte }}</div>{% endfor %}</div>
+      <span class="v1-eyebrow">À propos</span>
+      <h1 class="v1-title">{{ page.titre }}</h1>
+      <div class="v1-prose">{{ content }}</div>
+      {% if page.citation != "" %}<blockquote class="v1-quote">« {{ page.citation }} »</blockquote>{% endif %}
+      <div class="v1-creds">{% for c in page.chiffres %}<div><b>{{ c.nombre }}</b>{{ c.texte }}</div>{% endfor %}</div>
     </div>
   </div>
 </section>
