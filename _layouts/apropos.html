@@ -24,7 +24,7 @@ layout: default
   <div class="wrap">
     <div class="head center rv"><span class="eyebrow">Mes valeurs</span><h2>Ce qui guide <em class="it">mon accompagnement</em></h2></div>
     <div class="pillars">
-      {% for v in page.valeurs %}<div class="pillar rv"><div class="num">{% cycle 'i.','ii.','iii.','iv.','v.' %}</div><h3>{{ v.titre }}</h3><p>{{ v.texte }}</p></div>{% endfor %}
+      {% for v in page.valeurs %}<div class="pillar rv"><div class="num">{% include star.svg %}</div><h3>{{ v.titre }}</h3><p>{{ v.texte }}</p></div>{% endfor %}
     </div>
   </div>
 </section>

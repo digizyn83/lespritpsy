@@ -321,3 +321,26 @@ em.it{font-style:italic;color:inherit}
 .about .wrap{align-items:center}
 .about .wrap > .ph,.about .wrap > img{margin-top:0;max-width:430px;justify-self:center;aspect-ratio:3/4;border-radius:220px 220px 0 0;box-shadow:24px 24px 0 -1px var(--cream),24px 24px 0 0 var(--rose2)}
 .about{padding-top:110px}
+
+/* Étoile décorative à la place des chiffres romains */
+.pillar .num,.col-n{color:var(--rose-d);display:inline-flex}
+.pillar .num svg{width:30px;height:30px}
+
+/* ═══ PAGE CONTACT ═══ */
+.contact-mag{padding-top:110px}
+.contact-grid{grid-template-columns:.9fr 1.1fr;gap:5rem}
+.contact-lead{font-family:var(--fs);font-size:1.9rem;line-height:1.3;color:var(--espresso)!important;margin-bottom:2.6rem}
+.info-list{display:grid;gap:1.4rem;margin-bottom:2.6rem}
+.info{display:flex;gap:1.1rem;align-items:flex-start;padding-bottom:1.4rem;border-bottom:1px solid var(--line);color:var(--mid);font-size:.95rem}
+.info .ico{flex:none;width:46px;height:46px;border-radius:50%;background:var(--rose);display:grid;place-items:center;color:var(--brown)}
+.info b{display:block;font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;font-weight:600;color:var(--brown);margin-bottom:.2rem}
+.info a{color:var(--espresso);border-bottom:1px solid var(--rose2)}
+.rdv-box{background:var(--rose);padding:1.8rem 2rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;margin-bottom:1.6rem}
+.rdv-box p{color:var(--espresso)!important;font-family:var(--fs);font-size:1.4rem}
+.urgence{font-size:.8rem}
+.form-card{background:var(--cream);padding:3.2rem;border:1px solid var(--line);box-shadow:0 30px 60px -40px rgba(78,53,42,.35)}
+.form-card h3{font-size:2rem;margin-bottom:.4rem}
+.form-card input,.form-card select,.form-card textarea{background:var(--cream2);border:1px solid transparent;padding:.95rem 1.1rem}
+.form-card input:focus,.form-card select:focus,.form-card textarea:focus{border-color:var(--rose-d);background:var(--cream)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem}
+@media (max-width:560px){.two{grid-template-columns:1fr}.form-card{padding:2rem 1.4rem}}

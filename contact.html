@@ -12,26 +12,35 @@ seo_description: "Contacte Soumia Ikramallah, psychologue, pour une question ou 
   </div>
 </header>
 
-<!-- CONTACT -->
+{%- if r.lien_rdv and r.lien_rdv != "" -%}{%- assign rdv = r.lien_rdv -%}{%- else -%}{%- assign rdv = "" -%}{%- endif -%}
 <section class="contact-mag">
   <div class="wrap contact-grid">
-    <div class="rv">
-            <p>Une question, une envie de commencer un suivi ? Écris-moi, je te réponds au plus vite, in shaa Allah.</p>
-      <p class="contact-mail"><a href="mailto:{{ r.email }}">{{ r.email }}</a></p>
-      {% if r.instagram != "" %}<p><a class="link-arrow" href="{{ r.instagram }}" target="_blank" rel="noopener">Instagram</a></p>{% endif %}
+    <div class="contact-info rv">
+      <p class="contact-lead">Une question, une envie de commencer un suivi ? Écris-moi, je te réponds au plus vite, in shaa Allah.</p>
+      <div class="info-list">
+        <div class="info"><span class="ico">{% include star.svg %}</span><div><b>Par email</b><a href="mailto:{{ r.email }}">{{ r.email }}</a></div></div>
+        <div class="info"><span class="ico">{% include star.svg %}</span><div><b>Séances en visio</b>Depuis la France et partout dans le monde</div></div>
+        <div class="info"><span class="ico">{% include star.svg %}</span><div><b>Confidentialité</b>Nos échanges restent entre nous</div></div>
+        {% if r.instagram != "" %}<div class="info"><span class="ico">{% include star.svg %}</span><div><b>Instagram</b><a href="{{ r.instagram }}" target="_blank" rel="noopener">Me suivre</a></div></div>{% endif %}
+      </div>
+      {% if rdv != "" %}<div class="rdv-box"><p>Tu sais déjà que tu veux commencer ?</p><a href="{{ rdv }}" class="btn btn-dark">Réserver une séance</a></div>{% endif %}
+      <p class="urgence">En cas d'urgence, appelle le 15 ou le 3114 (prévention du suicide, 24h/24).</p>
     </div>
-    <form class="form-mag rv" action="https://formsubmit.co/{{ r.email }}" method="POST">
+    <form class="form-card rv" action="https://formsubmit.co/{{ r.email }}" method="POST">
+      <h3>Envoie-moi un message</h3>
       <input type="hidden" name="_subject" value="Nouveau message depuis le site L'esprit psy">
       <input type="hidden" name="_captcha" value="false">
       <input type="text" name="_honey" style="display:none">
-      <label>Prénom<input type="text" name="prenom" required></label>
-      <label>Email<input type="email" name="email" required></label>
+      <div class="two">
+        <label>Prénom<input type="text" name="prenom" required></label>
+        <label>Email<input type="email" name="email" required></label>
+      </div>
       <label>Je souhaite
         <select name="demande"><option>Une thérapie individuelle</option><option>Participer à un atelier</option><option>Une autre question</option></select>
       </label>
       <label>Message<textarea name="message" placeholder="Pas besoin de tout détailler ici, on en parlera en séance."></textarea></label>
       <button class="btn btn-dark" type="submit">Envoyer mon message</button>
-      <p class="form-note">Tes informations restent confidentielles. En cas d'urgence, appelle le 15 ou le 3114.</p>
+      <p class="form-note">Tes informations restent confidentielles et ne sont jamais partagées.</p>
     </form>
   </div>
 </section>

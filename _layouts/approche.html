@@ -25,7 +25,7 @@ layout: default
   <div class="wrap">
     <div class="head center rv"><span class="eyebrow">Les approches</span><h2>Plusieurs regards, <em class="it">un même soin</em></h2></div>
     <div class="pillars">
-      {% for a in page.approches %}<div class="pillar rv"><div class="num">{% cycle 'i.','ii.','iii.','iv.','v.' %}</div><h3>{{ a.titre }}</h3><p>{{ a.texte }}</p></div>{% endfor %}
+      {% for a in page.approches %}<div class="pillar rv"><div class="num">{% include star.svg %}</div><h3>{{ a.titre }}</h3><p>{{ a.texte }}</p></div>{% endfor %}
     </div>
   </div>
 </section>
