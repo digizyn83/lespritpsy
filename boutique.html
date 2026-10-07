@@ -14,6 +14,37 @@ seo_description: "E-books, replays vidéo d'ateliers et programmes de Soumia Ikr
   </div>
 </header>
 
+{%- assign r1 = site.produits | where: "type", "Atelier en direct" -%}{%- assign r2 = site.produits | where: "type", "Vidéo d'atelier" -%}{%- assign replays = r1 | concat: r2 -%}
+<section class="replays">
+  <div class="wrap">
+    <div class="v1-head rv">
+      <span class="v1-eyebrow">Conférences & ateliers</span>
+      <h2 class="v1-title">Apprendre et cheminer, <em>en ligne</em></h2>
+      <p>Des rencontres en ligne qui allient psychologie et spiritualité, en direct ou en replay, à regarder quand tu veux.</p>
+    </div>
+    {% if replays.size > 0 %}
+    <div class="replay-grid">
+      {%- for p in replays %}
+      <a href="{{ p.lien_achat }}" target="_blank" rel="noopener" class="replay rv">
+        <div class="replay-img">{% if p.cover and p.cover != "" %}<img src="{{ p.cover | relative_url }}" alt="{{ p.title }}">{% else %}<div class="ph"></div>{% endif %}<span class="replay-badge">{% if p.type == "Atelier en direct" %}En direct{% else %}▶ Replay{% endif %}</span></div>
+        <div class="replay-in">
+          <small>{% if p.date_atelier %}{{ p.date_atelier | date: "%d/%m/%Y · %Hh%M" }}{% elsif p.duree and p.duree != "" %}{{ p.duree }}{% else %}Accès immédiat{% endif %}</small>
+          <h3>{{ p.title }}</h3>
+          <p>{{ p.description }}</p>
+          <span class="replay-price">{% if p.price == 0 %}Gratuit{% else %}{{ p.price }} €{% endif %}</span>
+        </div>
+      </a>
+      {%- endfor %}
+    </div>
+    {% else %}
+    <div class="replay-soon rv">
+      <p>Les replays de mes conférences et ateliers arrivent très bientôt, in shaa Allah.</p>
+      {% if site.data.reglages.whatsapp != "" %}<a href="{{ site.data.reglages.whatsapp }}" target="_blank" rel="noopener" class="pill pill-dark">Être prévenue sur WhatsApp</a>{% endif %}
+    </div>
+    {% endif %}
+  </div>
+</section>
+
 <section style="padding-top:0">
   <div class="wrap">
     {% if produits.size > 0 %}
@@ -39,7 +70,7 @@ seo_description: "E-books, replays vidéo d'ateliers et programmes de Soumia Ikr
       {%- endfor %}
     </div>
     {% else %}
-    <p class="empty">La boutique ouvre très bientôt, in shaa Allah.</p>
+    <p class="empty">E-books et programmes : bientôt disponibles, in shaa Allah.</p>
     {% endif %}
   </div>
 </section>

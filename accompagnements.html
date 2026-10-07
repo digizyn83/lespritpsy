@@ -40,6 +40,18 @@ seo_description: "Thérapie individuelle en ligne, ateliers et conférences, e-b
   </div>
 </section>
 
+{%- assign c = site.data.consulter -%}
+<section class="consulter">
+  <div class="wrap">
+    <div class="v1-head rv">
+      <span class="v1-eyebrow">Pourquoi consulter</span>
+      <h2 class="v1-title">Un espace pour <em>toi</em>, quelle que soit ta situation</h2>
+      <p>{{ c.intro }}</p>
+    </div>
+    <ul class="chips rv">{% for t in c.sujets %}<li>{{ t }}</li>{% endfor %}</ul>
+  </div>
+</section>
+
 <section class="steps-sec">
   <div class="wrap">
     <div class="head rv"><span class="eyebrow">Comment ça se passe</span><h2>Simple, en quatre étapes.</h2></div>

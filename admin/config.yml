@@ -143,6 +143,12 @@ collections:
             fields:
               - { label: "Témoignage", name: "texte", widget: "text" }
               - { label: "Prénom (ou initiale)", name: "prenom", widget: "string", hint: "Ex : Amina, ou A." }
+      - name: "consulter"
+        label: "Pourquoi consulter (page Accompagnements)"
+        file: "_data/consulter.yml"
+        fields:
+          - { label: "Phrase d'introduction", name: "intro", widget: "text" }
+          - { label: "Sujets (étiquettes)", name: "sujets", widget: "list" }
       - name: "reglages"
         label: "Réglages du site (liens, contact)"
         file: "_data/reglages.yml"
