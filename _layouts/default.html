@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>{% if page.title and page.layout == "post" %}{{ page.title }} — L'esprit psy{% else %}{{ page.seo_title | default: "L'esprit psy — Soumia Ikramallah, psychologue | Psychologie & Islam" }}{% endif %}</title>
+<title>{% if page.title and page.layout == "post" %}{{ page.title }} — L'esprit psy{% else %}{{ page.seo_title | default: "L'esprit psy — Soumia Ikramallah, psychologue clinicienne | Psychologie musulmane" }}{% endif %}</title>
 <meta name="description" content="{{ page.excerpt | default: page.seo_description | default: site.description | strip_html | strip_newlines | truncate: 160 }}">
 {% if site.noindex %}<meta name="robots" content="noindex, nofollow">{% endif %}
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -37,7 +37,7 @@
 <footer>
   <div class="wrap">
     <div class="f-grid">
-      <div><a href="{{ site.baseurl }}/" class="logo">L'esprit <span>psy</span></a><p>Soumia Ikramallah, psychologue.<br>N° RPPS / ADELI : {{ r.rpps }}</p></div>
+      <div><a href="{{ site.baseurl }}/" class="logo">L'esprit <span>psy</span></a><p>Soumia Ikramallah, psychologue clinicienne.<br>N° RPPS / ADELI : {{ r.rpps }}</p></div>
       <div><h4>Navigation</h4><ul><li><a href="{{ site.baseurl }}/a-propos/">À propos</a></li><li><a href="{{ site.baseurl }}/approche/">Mon approche</a></li><li><a href="{{ site.baseurl }}/accompagnements/">Accompagnements</a></li><li><a href="{{ site.baseurl }}/boutique.html">Boutique</a></li><li><a href="{{ site.baseurl }}/blog/">Blog</a></li><li><a href="{{ site.baseurl }}/contact/">Contact</a></li></ul></div>
       <div><h4>Me suivre</h4><ul>
         {% if r.instagram != "" %}<li><a href="{{ r.instagram }}" target="_blank" rel="noopener">Instagram</a></li>{% endif %}

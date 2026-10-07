@@ -1,6 +1,6 @@
 # Site L'esprit psy — Soumia Ikramallah
 title: "L'esprit psy"
-description: "Soumia Ikramallah, psychologue formée en psychologie islamique"
+description: "Soumia Ikramallah, psychologue clinicienne certifiée en psychologie musulmane"
 url: ""
 baseurl: "/lespritpsy"  # mettre "" le jour du branchement sur lespritpsy.fr
 noindex: true          # site de test : pas indexé par Google (passer à false au lancement)
