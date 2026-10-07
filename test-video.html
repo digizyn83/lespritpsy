@@ -1,0 +1,28 @@
+---
+layout: default
+home: true
+permalink: /test-video/
+no_footer: true
+---
+{%- assign r = site.data.reglages -%}
+{%- if r.lien_rdv and r.lien_rdv != "" -%}{%- assign rdv = r.lien_rdv -%}{%- else -%}{%- assign rdv = "/contact/" | relative_url -%}{%- endif -%}
+
+<!-- HERO : vidéo plein écran -->
+<header class="hero">
+  <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="{{ site.baseurl }}/assets/video/presentation-poster.jpg">
+    <source src="{{ site.baseurl }}/assets/video/presentation.mp4" type="video/mp4">
+  </video>
+  <div class="hero-veil"></div>
+  <div class="hero-inner">
+    <p class="kicker rise" style="--d:.2s">Psychologue &nbsp;·&nbsp; Psychologie &amp; Islam</p>
+    <h1 class="rise" style="--d:.45s">Prendre soin<br>de ton cœur</h1>
+    <div class="hero-sign rise" style="--d:.75s"><span></span>Soumia Ikramallah<span></span></div>
+    <p class="hero-sub rise" style="--d:.95s">Un accompagnement pensé pour les femmes musulmanes, entre psychologie reconnue et sagesse de notre tradition.</p>
+    <div class="hero-ctas rise" style="--d:1.15s">
+      <a href="{{ rdv }}" class="btn btn-light">Prendre rendez-vous</a>
+      <a href="{{ site.baseurl }}/a-propos/" class="btn btn-line">Découvrir</a>
+    </div>
+  </div>
+  <div class="hero-legal"><a href="{{ site.baseurl }}/mentions-legales/">Mentions légales</a> · <a href="{{ site.baseurl }}/confidentialite/">Confidentialité</a> · <a href="{{ site.baseurl }}/cgv/">CGV</a></div>
+</header>
+
