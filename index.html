@@ -16,16 +16,10 @@ no_footer: true
     <h1 class="sig rise" style="--d:.2s">Soumia<span>Ikramallah</span></h1>
     <p class="kicker rise" style="--d:.55s">Psychologue clinicienne &nbsp;·&nbsp; Certifiée en psychologie musulmane</p>
     <p class="hero-sub rise" style="--d:.75s">Prendre soin de ton cœur, à la lumière de ta foi.</p>
-    <p class="bism rise" style="--d:1s" lang="ar">﷽</p>
-    <a href="{{ site.baseurl }}/a-propos/" class="enter rise" style="--d:1.25s">Fais défiler pour entrer dans le cabinet<span class="chev"></span></a>
+    <div class="hero-ctas rise" style="--d:1s">
+      <a href="{{ rdv }}" class="btn btn-light">Prendre rendez-vous</a>
+      <a href="{{ site.baseurl }}/a-propos/" class="btn btn-line">Découvrir</a>
+    </div>
   </div>
   <div class="hero-legal"><a href="{{ site.baseurl }}/mentions-legales/">Mentions légales</a> · <a href="{{ site.baseurl }}/confidentialite/">Confidentialité</a> · <a href="{{ site.baseurl }}/cgv/">CGV</a></div>
 </header>
-<script>
-/* « Fais défiler pour entrer » : un mouvement vers le bas ouvre la page À propos */
-(function(){var go=false,next="{{ site.baseurl }}/a-propos/";function enter(){if(go)return;go=true;document.body.classList.add('leaving');setTimeout(function(){location.href=next},450)}
-addEventListener('wheel',function(e){if(e.deltaY>25)enter()},{passive:true});
-var y0=null;addEventListener('touchstart',function(e){y0=e.touches[0].clientY},{passive:true});
-addEventListener('touchmove',function(e){if(y0!==null&&y0-e.touches[0].clientY>60)enter()},{passive:true});
-addEventListener('keydown',function(e){if(e.key==='ArrowDown'||e.key==='PageDown'||e.key===' ')enter()});})();
-</script>
