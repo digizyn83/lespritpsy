@@ -15,7 +15,7 @@
 </head>
 <body>
 
-<nav id="nav"{% unless page.home %} class="scrolled"{% endunless %}>
+<nav id="nav" class="{% unless page.home %}scrolled{% endunless %}{% if page.light_nav %} nav-light{% endif %}">
   <div class="wrap">
     <a href="{{ site.baseurl }}/" class="logo">L'esprit <span>psy</span></a>
     <ul class="nav-links">
