@@ -386,3 +386,4 @@ em.it{font-style:italic;color:inherit}
 .v1-note{font-family:'Mulish',sans-serif;font-size:.78rem;color:var(--mid)}
 @media (max-width:980px){.contact-v1 .wrap{grid-template-columns:1fr;gap:3rem}.contact-v1{padding:130px 0 90px}}
 @media (max-width:560px){.v1-form{padding:1.8rem}}
+.about-v1 img.about-v1-photo{object-position:50% 20%}

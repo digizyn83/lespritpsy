@@ -5,7 +5,7 @@ seo_title: "À propos — Soumia Ikramallah, psychologue | L'esprit psy"
 seo_description: "Découvre le parcours de Soumia Ikramallah, psychologue formée en psychologie islamique, qui accompagne les femmes musulmanes."
 titre: "Une psychologue qui <em>comprend</em> ce que tu vis."
 citation: "Allier la rigueur de la psychologie et la richesse de notre tradition, pour avancer en paix."
-photo: ""
+photo: "/uploads/soumia-test.jpg"
 chiffres:
   - { nombre: "3+ ans", texte: "en cabinet libéral" }
   - { nombre: "Formée", texte: "en psychologie islamique" }
